@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         antdLearn:"./src/main.tsx",
         terminalLearn:"./src/terminal.ts",
-        reduxLearn:"./src/redux/main.tsx",
+        reactReduxTodo:"./src/redux/todo/index.tsx",
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -49,9 +49,9 @@ module.exports = {
             chunks: ['terminalLearn']
         }),
         new HtmlWebpackPlugin({
-            filename:"redux.html",
-            template: "src/redux/index.html",
-            chunks: ['reduxLearn']
+            filename:"reactReduxTodo.html",
+            template: "src/redux/todo/index.html",
+            chunks: ['reactReduxTodo']
         })
     ],
     devServer: {
