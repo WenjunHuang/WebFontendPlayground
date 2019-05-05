@@ -6,20 +6,25 @@ module.exports = {
     entry: {
         antdLearn:"./src/main.tsx",
         terminalLearn:"./src/terminal.ts",
-        reactReduxTodo:"./src/redux/todo/index.tsx",
+        reactReduxTodo:"./src/react/todo/index.tsx",
+        reasonMLLearn:"./src/reasonml/main.re"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename:'[name].js'
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.json','.re','.ml']
     },
     module: {
         rules: [
             {
                 test: /\.txt$/,
                 loader: 'raw-loader',
+            },
+            {
+                test:/\.(re|ml)$/,
+                loader:'bs-loader'
             },
             {
                 test: /\.tsx?$/,
@@ -50,8 +55,13 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename:"reactReduxTodo.html",
-            template: "src/redux/todo/index.html",
+            template: "src/react/todo/index.html",
             chunks: ['reactReduxTodo']
+        }),
+        new HtmlWebpackPlugin({
+            filename:"reasonMLLearn.html",
+            template: "src/reasonml/index.html",
+            chunks: ['reasonMLLearn']
         })
     ],
     devServer: {

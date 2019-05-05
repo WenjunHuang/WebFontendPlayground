@@ -1,0 +1,19 @@
+{
+  "name": "reason-react-simple-starter",
+  "version": "4.0.0",
+  "reason": {
+    "react-jsx": 3
+  },
+  "refmt-specs": 3,
+  "refmt": 3,
+  "bs-dependencies": [
+    "reason-react",
+    "bs-webapi",
+    "bs-fetch",
+    "@glennsl/bs-json"
+  ],
+  "bs-dev-dependencies": ["@glennsl/bs-jest", "bs-react-test-renderer"],
+  "sources": [
+    "src/reasonml"
+  ]
+}
