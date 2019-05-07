@@ -1,6 +1,17 @@
-ReactDOMRe.renderToElementWithId(
-  <Greeting name="WenjunHuang">
-    <div> {React.string("Effectively the child.")} </div>
-  </Greeting>,
-  "container",
-);
+module type LogWithDateInterface = {
+  include (module type of Log);
+  let logStrWithDate: (t, t) => t;
+};
+
+module LogWithDate = {
+  include Log;
+  let logStrWithDate = (str: string, log: t) => {
+    let dateStr = Js.Date.toISOString(Js.Date.make());
+    logStr("[" ++ dateStr ++ "]" ++ str, log);
+  };
+};
+
+let () =
+  LogWithDate.(
+    make() |> logStrWithDate("Hello") |> logStrWithDate("everyone") |> print
+  );

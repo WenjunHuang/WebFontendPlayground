@@ -1,6 +1,6 @@
 {
   "name": "reason-react-simple-starter",
-  "version": "4.0.0",
+  "version": "1.0.0",
   "reason": {
     "react-jsx": 3
   },
@@ -12,8 +12,12 @@
     "bs-fetch",
     "@glennsl/bs-json"
   ],
-  "bs-dev-dependencies": ["@glennsl/bs-jest", "bs-react-test-renderer"],
-  "sources": [
-    "src/reasonml"
-  ]
+  "bs-dev-dependencies": [
+    "@glennsl/bs-jest",
+    "bs-react-test-renderer"
+  ],
+  "sources": {
+    "dir": "src/reasonml",
+    "subdirs": true
+  }
 }
