@@ -10,6 +10,8 @@
     "reason-react",
     "bs-webapi",
     "bs-fetch",
+    "bs-css",
+    "re-classnames",
     "@glennsl/bs-json"
   ],
   "bs-dev-dependencies": [
