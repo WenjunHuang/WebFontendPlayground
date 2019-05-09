@@ -71,9 +71,9 @@ module Tone = {
   //    isPlaying: bool,
   //  };
 
-  let oscillator = ref(Oscillator.create());
   [@react.component]
   let make = (~isPlaying: bool, ~pitch: float, ~volume: float) => {
+    let (oscillator, _) = React.useState(() => ref(Oscillator.create()));
     let doImperativeStuff = (isPlaying: bool, pitch: float, volume: float) => {
       Oscillator.(
         {
