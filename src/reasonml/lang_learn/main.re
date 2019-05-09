@@ -32,8 +32,6 @@ module type AddSingle = {
   let add: (elt, t) => t;
 };
 
-module AddAll = (A: AddSingle) : (S with type t := A.t) => {};
-
 module StringSet = Set.Make(String);
 
 let () = {
