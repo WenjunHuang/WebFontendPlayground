@@ -17,7 +17,6 @@ module Oscillator = {
 
   let create = (): t => {
     let ac = AudioContext.make();
-    AudioContext.resume(ac);
     let on = AudioContext.createOscillator(ac);
     OscillatorNode.start(on, 0.0);
     let gn = AudioContext.createGain(ac);
@@ -72,24 +71,31 @@ module Tone = {
   //    isPlaying: bool,
   //  };
 
+  let oscillator = ref(Oscillator.create());
   [@react.component]
   let make = (~isPlaying: bool, ~pitch: float, ~volume: float) => {
-    let oscillator = ref(Oscillator.create());
-
     let doImperativeStuff = (isPlaying: bool, pitch: float, volume: float) => {
-      if (isPlaying) {
-        oscillator := Oscillator.play(oscillator^);
-      } else {
-        oscillator := Oscillator.stop(oscillator^);
-      };
-      oscillator := Oscillator.setPitchBend(oscillator^, pitch);
-      oscillator := Oscillator.setVolume(oscillator^, volume);
+      Oscillator.(
+        {
+          oscillator :=
+            (
+              if (isPlaying) {
+                play(oscillator^);
+              } else {
+                stop(oscillator^);
+              }
+            )
+            ->setPitchBend(pitch)
+            ->setVolume(volume);
+        }
+      );
     };
 
     let _ =
-      React.useEffect(() =>
-        Some(() => doImperativeStuff(isPlaying, pitch, volume))
-      );
+      React.useEffect(() => {
+        doImperativeStuff(isPlaying, pitch, volume);
+        None;
+      });
 
     ReasonReact.null;
   };

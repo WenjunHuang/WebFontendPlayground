@@ -11,7 +11,7 @@ module.exports = {
         reactLifecycle: "./src/react/lifecycle/App.tsx",
         reasonMLLearn: "./src/reasonml/lang_learn/main.re",
         tsReactLesson01Lecture: "./src/react/training/lesson01/lecture/App.tsx",
-        reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/lecture01.re"
+        reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
