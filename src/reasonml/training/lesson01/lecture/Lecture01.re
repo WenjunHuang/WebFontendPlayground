@@ -108,6 +108,8 @@ module App = {
     isPlaying: bool,
   };
 
+  let fontColor = (base:Css_Colors)
+
   [@react.component]
   let make = () => {
     let (t, setState) =
@@ -143,10 +145,19 @@ module App = {
 
           setState(old => {...old, pitch, volume});
           ();
-        }}
-      />
-      <Tone isPlaying={t.isPlaying} pitch={t.pitch} volume={t.volume} />
-      <div className={Cn.make([styles##label, styles##pitch])}>
+        }}>
+        <SineWave
+          amplitude={t.volume}
+          frequency={t.pitch}
+          draw={t.isPlaying}
+          width="400px"
+          height="400px"
+        />
+        <Tone isPlaying={t.isPlaying} pitch={t.pitch} volume={t.volume} />
+      </div>
+      <div
+        style={ReactDOMRe.Style.make(~color="#444444", ())}
+        className={Cn.make([styles##label, styles##pitch])}>
         {React.string("Pitch")}
       </div>
       <div className={Cn.make([styles##label, styles##volume])}>
