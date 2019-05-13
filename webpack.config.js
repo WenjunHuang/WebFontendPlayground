@@ -15,6 +15,7 @@ module.exports = {
         tsReactLesson02Lecture: "./src/react/training/lesson02/lecture/App.tsx",
         tsReactLesson02Exercise: "./src/react/training/lesson02/exercise/App.tsx",
         tsReactLesson03Lecture: "./src/react/training/lesson03/lecture/App.tsx",
+        tsReactLesson03Exercise: "./src/react/training/lesson03/exercise/App.tsx",
 
         reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
     },
@@ -74,6 +75,14 @@ module.exports = {
                 use: [
                     {
                         loader: "base64-inline-loader"
+                    }
+                ]
+            },
+            {
+                test: /\.mp3$/,
+                use: [
+                    {
+                        loader: "file-loader"
                     }
                 ]
             }
@@ -140,6 +149,11 @@ module.exports = {
             filename: "ts/training/03_lecture.html",
             template: "src/react/index.html",
             chunks: ['tsReactLesson03Lecture']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/03_exercise.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson03Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "re/training/01_lecture.html",
