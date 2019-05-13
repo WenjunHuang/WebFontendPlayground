@@ -108,8 +108,6 @@ module App = {
     isPlaying: bool,
   };
 
-  let fontColor = (base:Css_Colors)
-
   [@react.component]
   let make = () => {
     let (t, setState) =
