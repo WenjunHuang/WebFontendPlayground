@@ -16,6 +16,10 @@ module.exports = {
         tsReactLesson02Exercise: "./src/react/training/lesson02/exercise/App.tsx",
         tsReactLesson03Lecture: "./src/react/training/lesson03/lecture/App.tsx",
         tsReactLesson03Exercise: "./src/react/training/lesson03/exercise/App.tsx",
+        tsReactLesson04Lecture: "./src/react/training/lesson04/lecture/App.tsx",
+        tsReactLesson04Exercise: "./src/react/training/lesson04/exercise/App.tsx",
+        tsReactLesson05Lecture: "./src/react/training/lesson05/lecture/App.tsx",
+        tsReactLesson05Exercise: "./src/react/training/lesson05/exercise/App.tsx",
 
         reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
     },
@@ -71,7 +75,7 @@ module.exports = {
                 loaders: ["style-loader", "css-loader"]
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpe?g)$/,
                 use: [
                     {
                         loader: "base64-inline-loader"
@@ -154,6 +158,26 @@ module.exports = {
             filename: "ts/training/03_exercise.html",
             template: "src/react/index.html",
             chunks: ['tsReactLesson03Exercise']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/04_lecture.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson04Lecture']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/04_exercise.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson04Exercise']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/05_lecture.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson05Lecture']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/05_exercise.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson05Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "re/training/01_lecture.html",

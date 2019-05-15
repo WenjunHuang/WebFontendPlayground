@@ -103,7 +103,7 @@ class AudioPlayer extends React.Component<AudioPlayerProps, AudioPlayerState> {
         }
     }
 
-    moveTo = (seconds:number) => {
+    moveTo = (seconds: number) => {
         if (this.audio && this.state.isPlaying) {
             this.audio.currentTime = seconds
         }
@@ -231,29 +231,41 @@ class JumpBack extends React.Component {
     }
 }
 
+function formatSeconds(seconds:number) {
+    const minutes = Math.floor(seconds / 60.0)
+    const remainder = Math.ceil(seconds % 60.0)
+
+    return `${minutes}:${remainder}`
+}
+
 class Progress extends React.Component {
     static contextType = AudioPlayerContext
     context!: React.ContextType<typeof AudioPlayerContext>
-    node?:HTMLDivElement
+    node?: HTMLDivElement
 
 
     render() {
         return (
-            <div ref={(n)=>this.node = n!}
-                className="progress"
-                 onClick={event =>{
-                     if (this.node && this.context.moveTo) {
-                         const {clientX} = event
-                         const {left,width} = this.node.getBoundingClientRect()
-                         const ratio = (clientX - left) /width
-                         const moveTo = ratio * this.context.duration
-                         this.context.moveTo(moveTo)
-                     }
-                 }}>
-                <div className="progress-bar"
-                     style={{
-                         width: `${(this.context.currentTime / this.context.duration) * 100.0}%`
+            <div>
+                <div ref={(n) => this.node = n!}
+                     className="progress"
+                     onClick={event => {
+                         if (this.node && this.context.moveTo) {
+                             const {clientX} = event
+                             const {left, width} = this.node.getBoundingClientRect()
+                             const ratio = (clientX - left) / width
+                             const moveTo = ratio * this.context.duration
+                             this.context.moveTo(moveTo)
+                         }
                      }}>
+                    <div className="progress-bar"
+                         style={{
+                             width: `${(this.context.currentTime / this.context.duration) * 100.0}%`
+                         }}>
+                    </div>
+                    <div className="duration-label">
+                        {formatSeconds(this.context.currentTime)} / {formatSeconds(this.context.duration)}
+                    </div>
                 </div>
             </div>
         )
