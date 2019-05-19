@@ -21,6 +21,8 @@ module.exports = {
         tsReactLesson05Lecture: "./src/react/training/lesson05/lecture/App.tsx",
         tsReactLesson05Exercise: "./src/react/training/lesson05/exercise/App.tsx",
 
+        tsReactLesson06Exercise: "./src/react/training/lesson06/exercise/App.tsx",
+
         reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
@@ -178,6 +180,11 @@ module.exports = {
             filename: "ts/training/05_exercise.html",
             template: "src/react/index.html",
             chunks: ['tsReactLesson05Exercise']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "ts/training/06_exercise.html",
+            template: "src/react/index.html",
+            chunks: ['tsReactLesson06Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "re/training/01_lecture.html",
