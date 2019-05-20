@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: {
         antdLearn: "./src/main.tsx",
+        es6Learn: "./src/es6/main.js",
         terminalLearn: "./src/terminal.ts",
         reactReduxTodo: "./src/react/todo/index.tsx",
         reactVehicles: "./src/react/vehicles/App.tsx",
@@ -183,6 +184,11 @@ module.exports = {
             filename: "re/training/01_lecture.html",
             template: "src/reasonml/training/index.html",
             chunks: ['reReactLesson01Lecture']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "es6/index.html",
+            template: "src/index.html",
+            chunks: ['es6Learn']
         }),
     ],
     devServer: {
