@@ -49,6 +49,11 @@ module.exports = {
                 loader: 'babel-loader'
             },
             {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
                 test: /\.scss$/,
                 include: [
                     path.resolve(__dirname, "src/reasonml")
