@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "sourceMap": true,
+    "module": "commonjs",
+    "importHelpers": true,
+    "allowJs": true,
+    "outDir": "../../dist/server-root",
+    "rootDir": "..",
+    "lib": ["es7"],
+    "moduleResolution": "node",
+    "types": ["node"]
+  },
+  "files": ["./main.ts"]
+}

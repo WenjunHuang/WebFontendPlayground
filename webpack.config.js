@@ -27,8 +27,9 @@ module.exports = {
         reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        path: path.resolve(__dirname, 'dist','statics'),
+        filename: '[name]-[hash:8]-bundle.js',
+        publicPath:'/statics/',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.re', '.ml', '.png']
@@ -199,6 +200,7 @@ module.exports = {
         }),
     ],
     devServer: {
+        port: 8080,
         inline: true,
         hot: true
     }
