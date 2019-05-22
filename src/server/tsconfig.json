@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "sourceMap": true,
+    "module": "commonjs",
+    "importHelpers": true,
+    "allowJs": true,
+    "outDir": "../../dist/server-root",
+    "jsx": "react",
+    "rootDir": "..",
+    "lib": [
+      "es6"
+    ],
+    "moduleResolution": "node",
+    "types": [
+      "node"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false
+  },
+  "include": [
+    "./**/*"
+  ]
+}
