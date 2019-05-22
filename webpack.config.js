@@ -4,27 +4,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        antdLearn: "./src/main.tsx",
-        es6Learn: "./src/es6/main.js",
-        terminalLearn: "./src/terminal.ts",
-        reactReduxTodo: "./src/react/todo/index.tsx",
-        reactVehicles: "./src/react/vehicles/App.tsx",
-        reactLifecycle: "./src/react/lifecycle/App.tsx",
-        reasonMLLearn: "./src/reasonml/lang_learn/main.re",
-        tsReactLesson01Lecture: "./src/react/training/lesson01/lecture/App.tsx",
-        tsReactLesson01Exercise: "./src/react/training/lesson01/exercise/App.tsx",
-        tsReactLesson02Lecture: "./src/react/training/lesson02/lecture/App.tsx",
-        tsReactLesson02Exercise: "./src/react/training/lesson02/exercise/App.tsx",
-        tsReactLesson03Lecture: "./src/react/training/lesson03/lecture/App.tsx",
-        tsReactLesson03Exercise: "./src/react/training/lesson03/exercise/App.tsx",
-        tsReactLesson04Lecture: "./src/react/training/lesson04/lecture/App.tsx",
-        tsReactLesson04Exercise: "./src/react/training/lesson04/exercise/App.tsx",
-        tsReactLesson05Lecture: "./src/react/training/lesson05/lecture/App.tsx",
-        tsReactLesson05Exercise: "./src/react/training/lesson05/exercise/App.tsx",
+        cssLearn: "./src/client/css/main.tsx",
+        antdLearn: "./src/client/main.tsx",
+        es6Learn: "./src/client/es6/main.js",
+        terminalLearn: "./src/client/terminal.ts",
+        reactReduxTodo: "./src/client/react/todo/index.tsx",
+        reactVehicles: "./src/client/react/vehicles/App.tsx",
+        reactLifecycle: "./src/client/react/lifecycle/App.tsx",
+        reasonMLLearn: "./src/client/reasonml/lang_learn/main.re",
+        tsReactLesson01Lecture: "./src/client/react/training/lesson01/lecture/App.tsx",
+        tsReactLesson01Exercise: "./src/client/react/training/lesson01/exercise/App.tsx",
+        tsReactLesson02Lecture: "./src/client/react/training/lesson02/lecture/App.tsx",
+        tsReactLesson02Exercise: "./src/client/react/training/lesson02/exercise/App.tsx",
+        tsReactLesson03Lecture: "./src/client/react/training/lesson03/lecture/App.tsx",
+        tsReactLesson03Exercise: "./src/client/react/training/lesson03/exercise/App.tsx",
+        tsReactLesson04Lecture: "./src/client/react/training/lesson04/lecture/App.tsx",
+        tsReactLesson04Exercise: "./src/client/react/training/lesson04/exercise/App.tsx",
+        tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
+        tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
 
-        tsReactLesson06Exercise: "./src/react/training/lesson06/exercise/App.tsx",
+        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
 
-        reReactLesson01Lecture: "./src/reasonml/training/lesson01/lecture/Lecture01.re"
+        reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
         path: path.resolve(__dirname, 'dist','statics'),
@@ -64,7 +65,7 @@ module.exports = {
                     {
                         loader: "reason-css-modules-loader",
                         query: {
-                            destDir: "./src/reasonml/css"
+                            destDir: "./src/client/reasonml/css"
                         }
                     },
                     "sass-loader"]
@@ -105,108 +106,116 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: "src/index.html",
+            template: "src/client/index.html",
             chunks: ['antdLearn']
         }),
         new HtmlWebpackPlugin({
             filename: "terminal.html",
-            template: "src/terminal.html",
+            template: "src/client/terminal.html",
             chunks: ['terminalLearn']
         }),
         new HtmlWebpackPlugin({
             filename: "reactReduxTodo.html",
-            template: "src/react/todo/index.html",
+            template: "src/client/react/todo/index.html",
             chunks: ['reactReduxTodo']
         }),
         new HtmlWebpackPlugin({
             filename: "reasonMLLearn.html",
-            template: "src/reasonml/index.html",
+            template: "src/client/reasonml/index.html",
             chunks: ['reasonMLLearn']
         }),
         new HtmlWebpackPlugin({
             filename: "reactVehicles.html",
-            template: "src/react/vehicles/index.html",
+            template: "src/client/react/vehicles/index.html",
             chunks: ['reactVehicles']
         }),
         new HtmlWebpackPlugin({
             filename: "lifecycle.html",
-            template: "src/react/lifecycle/index.html",
+            template: "src/client/react/lifecycle/index.html",
             chunks: ['reactLifecycle']
         }),
         new HtmlWebpackPlugin({
             filename: "reason_react.html",
-            template: "src/reasonml/index.html",
+            template: "src/client/reasonml/index.html",
             chunks: ['reasonReact']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/01_lecture.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson01Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/01_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson01Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/02_lecture.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson02Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/02_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson02Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/03_lecture.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson03Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/03_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson03Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/04_lecture.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson04Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/04_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson04Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/05_lecture.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson05Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/05_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson05Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/06_exercise.html",
-            template: "src/react/index.html",
+            template: "src/client/react/index.html",
             chunks: ['tsReactLesson06Exercise']
         }),
         new HtmlWebpackPlugin({
             filename: "re/training/01_lecture.html",
-            template: "src/reasonml/training/index.html",
+            template: "src/client/reasonml/training/index.html",
             chunks: ['reReactLesson01Lecture']
         }),
         new HtmlWebpackPlugin({
             filename: "es6/index.html",
-            template: "src/index.html",
+            template: "src/client/index.html",
             chunks: ['es6Learn']
         }),
+        new HtmlWebpackPlugin({
+            filename: "css/index.html",
+            template: "src/client/css/index.html",
+            chunks: ['cssLearn']
+        })
     ],
     devServer: {
         port: 8080,
         inline: true,
-        hot: true
+        hot: true,
+        proxy:{
+            '/api':'http://localhost:3000'
+        }
     }
 };
