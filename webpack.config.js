@@ -11,7 +11,6 @@ module.exports = {
         reactReduxTodo: "./src/client/react/todo/index.tsx",
         reactVehicles: "./src/client/react/vehicles/App.tsx",
         reactLifecycle: "./src/client/react/lifecycle/App.tsx",
-        reasonMLLearn: "./src/client/reasonml/lang_learn/main.re",
         tsReactLesson01Lecture: "./src/client/react/training/lesson01/lecture/App.tsx",
         tsReactLesson01Exercise: "./src/client/react/training/lesson01/exercise/App.tsx",
         tsReactLesson02Lecture: "./src/client/react/training/lesson02/lecture/App.tsx",
@@ -23,14 +22,13 @@ module.exports = {
         tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
         tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
 
-        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
+        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx"
 
-        reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
+        // reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
-        path: path.resolve(__dirname, 'dist','statics'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name]-[hash:8]-bundle.js',
-        publicPath:'/statics/',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.re', '.ml', '.png']
@@ -135,11 +133,6 @@ module.exports = {
             chunks: ['reactLifecycle']
         }),
         new HtmlWebpackPlugin({
-            filename: "reason_react.html",
-            template: "src/client/reasonml/index.html",
-            chunks: ['reasonReact']
-        }),
-        new HtmlWebpackPlugin({
             filename: "ts/training/01_lecture.html",
             template: "src/client/react/index.html",
             chunks: ['tsReactLesson01Lecture']
@@ -194,11 +187,11 @@ module.exports = {
             template: "src/client/react/index.html",
             chunks: ['tsReactLesson06Exercise']
         }),
-        new HtmlWebpackPlugin({
-            filename: "re/training/01_lecture.html",
-            template: "src/client/reasonml/training/index.html",
-            chunks: ['reReactLesson01Lecture']
-        }),
+        // new HtmlWebpackPlugin({
+        //     filename: "re/training/01_lecture.html",
+        //     template: "src/client/reasonml/training/index.html",
+        //     chunks: ['reReactLesson01Lecture']
+        // }),
         new HtmlWebpackPlugin({
             filename: "es6/index.html",
             template: "src/client/index.html",
@@ -211,7 +204,7 @@ module.exports = {
         })
     ],
     devServer: {
-        port: 8080,
+        port: 8081,
         inline: true,
         hot: true,
         proxy:{
