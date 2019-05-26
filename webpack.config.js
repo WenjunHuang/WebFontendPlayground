@@ -24,7 +24,9 @@ module.exports = {
         tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
         tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
 
-        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
+        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx"
+
+        // reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -208,7 +210,7 @@ module.exports = {
         })
     ],
     devServer: {
-        port: 8080,
+        port: 8081,
         inline: true,
         hot: true,
         proxy: {

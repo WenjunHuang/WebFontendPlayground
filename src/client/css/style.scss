@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+#product-overview {
+  background: #ff1b68;
+  height: 528px;
+  padding: 10px;
+}
+
+h1 {
+  color: white;
+  font-family: 'Anton', sans-serif;
+}
+
+.section-title {
+  color: #2ddf4c;
+  font-family: inherit;
+}
+
+.main-header {
+  background: #2ddf4c;
+  padding: 20px;
+}
+
+.main-header > div {
+  display: inline-block;
+
+}
+
+.main-header__brand {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1f5c3f;
+}
+
+.main-nav {
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 73px);
+}
+
+.main-nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav__item {
+  display: inline-block;
+  margin: 0 16px;
+
+  & > a {
+    text-decoration: none;
+    color: #1f5c3f;
+  }
+
+  & > a:hover {
+    color: white;
+  }
+  & > a:active {
+    color: white;
+  }
+}
+
