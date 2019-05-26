@@ -4,14 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        cssLearn: "./src/client/css/main.tsx",
-        antdLearn: "./src/client/main.tsx",
+        cssLearn: "./src/client/css/index.tsx",
+        cssPackage: "./src/client/css/packages/index.tsx",
+        cssCustomers: "./src/client/css/customers/index.tsx",
+        scssLearn: "./src/client/scss/index.ts",
         es6Learn: "./src/client/es6/main.js",
         terminalLearn: "./src/client/terminal.ts",
         reactReduxTodo: "./src/client/react/todo/index.tsx",
         reactVehicles: "./src/client/react/vehicles/App.tsx",
         reactLifecycle: "./src/client/react/lifecycle/App.tsx",
-        reasonMLLearn: "./src/client/reasonml/lang_learn/main.re",
         tsReactLesson01Lecture: "./src/client/react/training/lesson01/lecture/App.tsx",
         tsReactLesson01Exercise: "./src/client/react/training/lesson01/exercise/App.tsx",
         tsReactLesson02Lecture: "./src/client/react/training/lesson02/lecture/App.tsx",
@@ -24,13 +25,10 @@ module.exports = {
         tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
 
         tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
-
-        reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
     output: {
-        path: path.resolve(__dirname, 'dist','statics'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name]-[hash:8]-bundle.js',
-        publicPath:'/statics/',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.re', '.ml', '.png']
@@ -99,16 +97,15 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
+            },
+            {
+                test: /\.(html)$/,
+                use: ['html-loader']
             }
         ]
 
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "src/client/index.html",
-            chunks: ['antdLearn']
-        }),
         new HtmlWebpackPlugin({
             filename: "terminal.html",
             template: "src/client/terminal.html",
@@ -120,11 +117,6 @@ module.exports = {
             chunks: ['reactReduxTodo']
         }),
         new HtmlWebpackPlugin({
-            filename: "reasonMLLearn.html",
-            template: "src/client/reasonml/index.html",
-            chunks: ['reasonMLLearn']
-        }),
-        new HtmlWebpackPlugin({
             filename: "reactVehicles.html",
             template: "src/client/react/vehicles/index.html",
             chunks: ['reactVehicles']
@@ -133,11 +125,6 @@ module.exports = {
             filename: "lifecycle.html",
             template: "src/client/react/lifecycle/index.html",
             chunks: ['reactLifecycle']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "reason_react.html",
-            template: "src/client/reasonml/index.html",
-            chunks: ['reasonReact']
         }),
         new HtmlWebpackPlugin({
             filename: "ts/training/01_lecture.html",
@@ -195,11 +182,6 @@ module.exports = {
             chunks: ['tsReactLesson06Exercise']
         }),
         new HtmlWebpackPlugin({
-            filename: "re/training/01_lecture.html",
-            template: "src/client/reasonml/training/index.html",
-            chunks: ['reReactLesson01Lecture']
-        }),
-        new HtmlWebpackPlugin({
             filename: "es6/index.html",
             template: "src/client/index.html",
             chunks: ['es6Learn']
@@ -208,14 +190,29 @@ module.exports = {
             filename: "css/index.html",
             template: "src/client/css/index.html",
             chunks: ['cssLearn']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "css/packages/index.html",
+            template: "src/client/css/packages/index.html",
+            chunks: ['cssPackage']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "css/customers/index.html",
+            template: "src/client/css/customers/index.html",
+            chunks: ['cssCustomers']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "scss/index.html",
+            template: "src/client/scss/index.html",
+            chunks: ['scssLearn']
         })
     ],
     devServer: {
         port: 8080,
         inline: true,
         hot: true,
-        proxy:{
-            '/api':'http://localhost:3000'
+        proxy: {
+            '/api': 'http://localhost:3000'
         }
     }
 };
