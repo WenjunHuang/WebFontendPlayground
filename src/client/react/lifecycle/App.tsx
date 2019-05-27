@@ -36,7 +36,8 @@ class Parent extends React.Component {
 
     render() {
         return (
-            <div>Parent {this.props.children}
+            <div>
+                Parent {this.props.children}
             </div>
         )
 
