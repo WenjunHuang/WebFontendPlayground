@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        cssLearn: "./src/client/css/main.tsx",
-        antdLearn: "./src/client/main.tsx",
+        cssLearn: "./src/client/css/index.tsx",
+        cssPackage: "./src/client/css/packages/index.tsx",
+        cssCustomers: "./src/client/css/customers/index.tsx",
+        scssLearn: "./src/client/scss/index.ts",
         es6Learn: "./src/client/es6/main.js",
         terminalLearn: "./src/client/terminal.ts",
         reactReduxTodo: "./src/client/react/todo/index.tsx",
@@ -97,16 +99,15 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
+            },
+            {
+                test: /\.(html)$/,
+                use: ['html-loader']
             }
         ]
 
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "src/client/index.html",
-            chunks: ['antdLearn']
-        }),
         new HtmlWebpackPlugin({
             filename: "terminal.html",
             template: "src/client/terminal.html",
@@ -116,11 +117,6 @@ module.exports = {
             filename: "reactReduxTodo.html",
             template: "src/client/react/todo/index.html",
             chunks: ['reactReduxTodo']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "reasonMLLearn.html",
-            template: "src/client/reasonml/index.html",
-            chunks: ['reasonMLLearn']
         }),
         new HtmlWebpackPlugin({
             filename: "reactVehicles.html",
@@ -187,11 +183,6 @@ module.exports = {
             template: "src/client/react/index.html",
             chunks: ['tsReactLesson06Exercise']
         }),
-        // new HtmlWebpackPlugin({
-        //     filename: "re/training/01_lecture.html",
-        //     template: "src/client/reasonml/training/index.html",
-        //     chunks: ['reReactLesson01Lecture']
-        // }),
         new HtmlWebpackPlugin({
             filename: "es6/index.html",
             template: "src/client/index.html",
@@ -201,14 +192,29 @@ module.exports = {
             filename: "css/index.html",
             template: "src/client/css/index.html",
             chunks: ['cssLearn']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "css/packages/index.html",
+            template: "src/client/css/packages/index.html",
+            chunks: ['cssPackage']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "css/customers/index.html",
+            template: "src/client/css/customers/index.html",
+            chunks: ['cssCustomers']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "scss/index.html",
+            template: "src/client/scss/index.html",
+            chunks: ['scssLearn']
         })
     ],
     devServer: {
         port: 8081,
         inline: true,
         hot: true,
-        proxy:{
-            '/api':'http://localhost:3000'
+        proxy: {
+            '/api': 'http://localhost:3000'
         }
     }
 };
