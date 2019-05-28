@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: {
         cssLearn: "./src/client/css/index.tsx",
-        cssPackage: "./src/client/css/packages/index.tsx",
-        cssCustomers: "./src/client/css/customers/index.tsx",
+        cssPackage: "./src/client/css/packages/index.ts",
+        cssCustomers: "./src/client/css/customers/index.ts",
         scssLearn: "./src/client/scss/index.ts",
         es6Learn: "./src/client/es6/main.js",
         terminalLearn: "./src/client/terminal.ts",
