@@ -5,7 +5,7 @@
     "jsx": "react",
     "sourceMap": true,
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noEmit": true,
     "lib": ["es2015","dom"]
   },

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
+        styledComponent:"./src/client/styledcomponent/App.tsx",
         cssLearn: "./src/client/css/index.tsx",
         cssPackage: "./src/client/css/packages/index.ts",
         cssCustomers: "./src/client/css/customers/index.ts",
@@ -207,6 +208,11 @@ module.exports = {
             filename: "scss/index.html",
             template: "src/client/scss/index.html",
             chunks: ['scssLearn']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "styledcomponent/index.html",
+            template: "src/client/styledcomponent/index.html",
+            chunks: ['styledComponent']
         })
     ],
     devServer: {
