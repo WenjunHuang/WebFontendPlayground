@@ -8,6 +8,7 @@ module.exports = {
         cssLearn: "./src/client/css/index.tsx",
         cssPackage: "./src/client/css/packages/index.ts",
         cssCustomers: "./src/client/css/customers/index.ts",
+        cssStartHosting: "./src/client/css/start-hosting/index.ts",
         scssLearn: "./src/client/scss/index.ts",
         es6Learn: "./src/client/es6/main.js",
         terminalLearn: "./src/client/terminal.ts",
@@ -24,8 +25,9 @@ module.exports = {
         tsReactLesson04Exercise: "./src/client/react/training/lesson04/exercise/App.tsx",
         tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
         tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
+        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
 
-        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx"
+        antdLearn: "./src/client/antdlearn/main.tsx"
 
         // reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
@@ -186,7 +188,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: "es6/index.html",
-            template: "src/client/index.html",
+            template: "src/client/es6/index.html",
             chunks: ['es6Learn']
         }),
         new HtmlWebpackPlugin({
@@ -205,6 +207,11 @@ module.exports = {
             chunks: ['cssCustomers']
         }),
         new HtmlWebpackPlugin({
+            filename: "css/start-hosting/index.html",
+            template: "src/client/css/start-hosting/index.html",
+            chunks: ['cssStartHosting']
+        }),
+        new HtmlWebpackPlugin({
             filename: "scss/index.html",
             template: "src/client/scss/index.html",
             chunks: ['scssLearn']
@@ -213,6 +220,11 @@ module.exports = {
             filename: "styledcomponent/index.html",
             template: "src/client/styledcomponent/index.html",
             chunks: ['styledComponent']
+        }),
+        new HtmlWebpackPlugin({
+            filename:'antdlearn/index.html',
+            template:'src/client/antdlearn/index.html',
+            chunks:['antdLearn']
         })
     ],
     devServer: {

@@ -38,6 +38,7 @@
     "bs-loader": "^2.0.7",
     "bs-platform": "^5.0.4",
     "bs-react-test-renderer": "^2.0.0",
+    "compass-mixins": "^0.12.10",
     "concurrently": "^4.1.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",

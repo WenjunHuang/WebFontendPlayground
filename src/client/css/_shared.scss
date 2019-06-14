@@ -43,6 +43,12 @@ body {
   vertical-align: middle;
 }
 
+@media (min-width: 40rem) {
+  .toggle-button {
+    display: none;
+  }
+}
+
 .toggle-button:focus {
   outline: none;
 }
@@ -82,6 +88,13 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+  display:none;
+}
+
+@media (min-width: 40rem) {
+  .main-nav__items {
+    display: block;
+  }
 }
 
 .main-nav__item {
@@ -195,6 +208,13 @@ body {
 
 .button:focus {
   outline: none;
+}
+
+.button[disabled] {
+  cursor:not-allowed;
+  border: #a1a1a1;
+  background: #ccc;
+  color: #a1a1a1;
 }
 
 .open {

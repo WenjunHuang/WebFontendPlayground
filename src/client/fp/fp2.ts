@@ -4,6 +4,7 @@ import {none, Option, some} from 'fp-ts/lib/Option'
 import {randomInt} from 'fp-ts/lib/Random'
 import {fromIO, task, Task, URI as TaskURI} from 'fp-ts/lib/Task'
 import {createInterface} from 'readline'
+import {Monad} from "fp-ts/lib/Monad"
 
 const getStrLn: Task<string> = new Task(() =>
     new Promise(resolve => {
@@ -41,6 +42,19 @@ interface Program<F extends URIS, A> {
 interface Console<F extends URIS> {
     putStrLn: (message: string) => _<F, void>
     getStrLn: _<F, string>
+}
+
+class ConsoleImpl<F extends URIS> implements Console<F>{
+    readonly M: Monad<F>;
+    constructor(M:Monad<F>){
+        this.M = M
+    }
+
+    getStrLn: _<F, string> = {}
+    putStrLn = (message: string) => {
+        this.M.
+
+    }
 }
 
 interface Random<F extends URIS> {
