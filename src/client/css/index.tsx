@@ -1,4 +1,4 @@
-import './main.scss'
+// import './main.scss'
 
 const backdrop = document.querySelector(".backdrop")!;
 const modal = document.querySelector(".modal")!;
