@@ -1,9 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {App, CheckState, TreeNode} from "./App";
+import {App, CheckState, TreeNode,AppClass} from "./App";
 import {none, some} from "fp-ts/lib/Option"
 
-
+function fetchSchools(){
+    const url = "http://192.168.2.122:9091/permission/template/school_tree/2fe2e5b9-5f6d-487f-bfa1-36803b501a93"
+}
 function generateSubNode(parent:TreeNode,count:number,level:number) {
     if (level === 0)
         return
@@ -41,6 +43,6 @@ function generateTree():TreeNode {
 }
 
 ReactDOM.render(
-    <App tree={generateTree()}/>,
+    <AppClass tree={generateTree()}/>,
     document.getElementById("example")
 );
