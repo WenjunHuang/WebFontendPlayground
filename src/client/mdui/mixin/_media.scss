@@ -1,0 +1,11 @@
+@mixin mdui-img-fluid() {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@mixin mdui-video-fluid() {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

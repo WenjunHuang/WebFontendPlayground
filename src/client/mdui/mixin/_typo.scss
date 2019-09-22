@@ -1,0 +1,50 @@
+@mixin mdui-typo-display-4-opacity() {
+  opacity: 0.54;
+}
+
+@mixin mdui-typo-display-4($opacity: false) {
+  font-size: 112px;
+  font-weight: 300;
+  letter-spacing: -.04em;
+  @if $opacity {
+    @include mdui-typo-display-4-opacity();
+  }
+
+  @if (type_of($opacity) == "number") {
+    opacity: $opacity;
+  }
+}
+
+@mixin mdui-typo-display-3-opacity() {
+  opacity: 0.54;
+}
+
+@mixin mdui-typo-display-3($opacity:false) {
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -.02em;
+
+  @if ($opacity == true) {
+    @include mdui-typo-display-3-opacity();
+  }
+
+  @if (type_of($opacity) == "number") {
+    opacity: $opacity;
+  }
+}
+
+@mixin mdui-typo-display-2-opacity() {
+  opacity: 0.54;
+}
+
+@mixin mdui-typo-display-2($opacity:false) {
+  font-size: 45px;
+  font-weight: 400;
+  letter-spacing: 0;
+  @if ($opacity == true) {
+    @include mdui-typo-display-2-opacity();
+  }
+  @if (type_of($opacity) == "number") {
+    opacity: $opacity;
+  }
+}

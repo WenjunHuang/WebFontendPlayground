@@ -1,0 +1,10 @@
+@import "mdui.scss";
+
+.amber {
+  @include mdui-color('amber', 700);
+  box-shadow: getShadow(1);
+}
+
+.blue {
+  @include mdui-background-color-active('blue');
+}

@@ -1,0 +1,28 @@
+@import '../variable/global';
+@import '../variable/animation';
+@import '../mixin/shadow';
+
+.mdui-appbar {
+  z-index: $z-index-appbar;
+  @include mdui-shadow(4);
+}
+
+// appbar 固定在顶部
+.mdui-appbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: left, right;
+  transition-property: left, right;
+  transition-timing-function: $animation-curve-linear-out-slow-in;
+  transition-duration: 0.3s;
+
+  .mdui-appbar-inset& {
+    .mdui-drawer-body-left & {
+      @media (min-width: $screen-md-min) {
+        left: $drawer-width-md;
+      }
+    }
+  }
+}

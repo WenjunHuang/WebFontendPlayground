@@ -1,0 +1,18 @@
+@import '../variable/animation';
+@import '../variable/shadow';
+
+// 阴影
+@mixin mdui-shadow($depth) {
+  box-shadow: getShadow($depth);
+}
+
+// hover 时添加阴影
+@mixin mdui-hoverable($depth: 8) {
+  will-change: box-shadow;
+  transition: box-shadow .25s $animation-curve-default;
+
+  &:hover,
+  &:focus {
+    @include mdui-shadow($depth);
+  }
+}

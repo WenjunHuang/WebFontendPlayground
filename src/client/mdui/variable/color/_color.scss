@@ -1,0 +1,19 @@
+@import "amber";
+@import "black";
+@import "blue";
+@import "blue-grey";
+
+$colors: (
+        "amber":$color-amber,
+        "black":$color-black,
+        "blue":$color-blue,
+        "blue-grey":$color-blue-grey,
+);
+
+@function isColorDark($colorName,$colorDegree) {
+  @return map-get(map-get($colors, $colorName), "#{colorName}-#{$colorDegree}-is-dark");
+}
+
+@function getColor($colorName,$colorDegree) {
+  @return map-get(map-get($colors,$colorName),"#{$colorDegree}");
+}

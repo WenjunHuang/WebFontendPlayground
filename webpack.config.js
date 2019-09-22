@@ -27,7 +27,11 @@ module.exports = {
         tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
         tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
 
-        antdLearn: "./src/client/antdlearn/main.tsx"
+        antdLearn: "./src/client/antdlearn/main.tsx",
+
+        mduiCopy: "./src/client/mdui/main.tsx",
+
+        // bootstrapLearn: "./src/client/bootstrap/main.tsx",
 
         // reReactLesson01Lecture: "./src/client/reasonml/training/lesson01/lecture/Lecture01.re"
     },
@@ -225,6 +229,11 @@ module.exports = {
             filename:'antdlearn/index.html',
             template:'src/client/antdlearn/index.html',
             chunks:['antdLearn']
+        }),
+        new HtmlWebpackPlugin({
+            filename:'mdui/index.html',
+            template:'src/client/mdui/index.html',
+            chunks:['mduiCopy']
         })
     ],
     devServer: {

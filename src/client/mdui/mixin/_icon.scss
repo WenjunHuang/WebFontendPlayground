@@ -1,0 +1,22 @@
+@import "../variable/global";
+@import "../variable/color";
+
+// 图标颜色，纯黑色图标有54%不透明度，其他颜色保持原色
+@mixin mdui-icon-color($colorName) {
+  @if ($colorName == "black") {
+    color: $color-black-icon;
+  } @else {
+    color: getColor($colorName, 500);
+  }
+}
+
+// 禁用状态图标颜色，深色图标有 26% 不透明度，浅色图标有 30% 不透明度
+@mixin mdui-icon-color-disabled($colorName) {
+  $colorIsDark: isColorDark($colorName, 500);
+
+  @if $colorIsDark {
+    color: rgba(getColor($colorName, 500), $opacity-black-icon-disabled);
+  } @else {
+    color: rgba(getColor($colorName, 500), $opacity-white-icon-disabled);
+  }
+}

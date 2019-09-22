@@ -1,0 +1,55 @@
+@import "../variable/global";
+@import "../variable/color/color";
+
+// 根据背景色设置文本色
+@mixin mdui-color-text-color($color-is-dark) {
+  @if $color-is-dark {
+    color: $color-white-text;
+  } @else {
+    color: $color-black-text;
+  }
+}
+
+// hover 状态背景色
+@mixin mdui-background-color-hover($colorName) {
+  $colorIsDark: isColorDark($colorName, "500");
+  @if $colorIsDark {
+    background-color: getColor($colorName, "400");
+  } @else {
+    background-color: getColor($colorName, "600");
+  }
+}
+
+// active 状态背景色
+@mixin mdui-background-color-active($colorName) {
+  $colorIsDark: isColorDark($colorName, "500");
+
+  @if $colorIsDark {
+    background-color: getColor($colorName, "300");
+  } @else {
+    background-color: getColor($colorName, "700");
+  }
+}
+
+// 仅设置背景色
+@mixin mdui-background-color($colorName,$degree: "500") {
+  background-color: getColor($colorName, $degree);
+}
+
+// 背景色和文本色
+@mixin mdui-color($colorName,$degree:"500") {
+  @include mdui-background-color($colorName, $degree);
+
+  $colorIsDark: isColorDark($colorName, $degree);
+  @include mdui-color-text-color($colorIsDark);
+}
+
+// 文本色
+@mixin mdui-text-color($colorName,$degree: 500,$opacity:1) {
+  @if ($opacity == 1) {
+    color: getColor($colorName, $degree);
+  } @else {
+    color: rgba(getColor($colorName, $degree), $opacity);
+  }
+
+}

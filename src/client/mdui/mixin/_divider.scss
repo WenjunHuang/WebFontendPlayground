@@ -1,0 +1,37 @@
+@import '../variable/global';
+
+// 分割线
+
+// 添加边框作为分割线，亮色的分割线
+@mixin mdui-divider-top-light() {
+  border-top: 1px sold $color-white-divider;
+}
+
+@mixin mdui-divider-bottom-light() {
+  border-bottom: 1px solid $color-white-divider;
+}
+
+@mixin mdui-divider-left-right() {
+  border-left: 1px solid $color-white-divider;
+}
+
+@mixin mdui-divider-right-light() {
+  border-right: 1px solid $color-white-divider;
+}
+
+// 添加边框作为分割线
+@mixin mdui-divider-top-dark() {
+  border-top: 1px solid $color-black-divider;
+}
+
+@mixin mdui-divider-bottom-dark() {
+  border-bottom: 1px solid $color-black-divider;
+}
+
+@mixin mdui-divider-left-dark() {
+  border-left: 1px solid $color-black-divider;
+}
+
+@mixin mdui-divider-right-dark() {
+  border-right: 1px solid $color-black-divider;
+}
