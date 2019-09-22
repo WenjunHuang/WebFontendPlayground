@@ -78,7 +78,7 @@ function calculateNodeStateOnlyAccordingToChildrenState(node: TreeNode) {
             }
         }
 
-        if (newState.isSome() && newState.value ==='Half')
+        if (newState.isSome() && newState.value === 'Half')
             break
     }
 
@@ -91,11 +91,64 @@ function calculateNodeStateOnlyAccordingToChildrenState(node: TreeNode) {
     }
 }
 
+
 function updateChildrenState(node: TreeNode, state: CheckState) {
     node.children.forEach((child) => {
         child.data.checkedState = state
         updateChildrenState(child, state)
     })
+}
+
+interface AppState {
+    tree: TreeNode
+}
+
+export class AppClass extends React.Component<AppProps, AppState> {
+    constructor(props: AppProps) {
+        super(props)
+        this.state = {
+            tree: props.tree
+        }
+    }
+
+    onNodeCheck(node: TreeNode) {
+        this.setState(() => {
+            switch (node.data.checkedState) {
+                case 'Empty':
+                    node.data.checkedState = 'Checked'
+                    break
+                case 'Half':
+                    node.data.checkedState = 'Checked'
+                    break
+                case 'Checked':
+                    node.data.checkedState = 'Empty'
+                    break
+            }
+
+            if (node.parent.isSome())
+                calculateNodeStateOnlyAccordingToChildrenState(node.parent.value)
+
+            updateChildrenState(node, node.data.checkedState)
+
+        })
+        this.forceUpdate()
+    }
+
+    render() {
+        const checked: string[] = []
+        const halfChecked: string[] = []
+        return (
+            <Tree checkable={true}
+                  checkStrictly={true}
+                  checkedKeys={{checked, halfChecked}}
+                  onCheck={(_, e) => this.onNodeCheck(e.node.props.dataRef)}>
+                {
+                    renderSubTree(this.state.tree, checked, halfChecked)
+                }
+            </Tree>
+        )
+    }
+
 }
 
 
