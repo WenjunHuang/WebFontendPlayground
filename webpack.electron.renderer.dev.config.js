@@ -4,10 +4,10 @@ const spawn = require('child_process').spawn
 const baseConfig = require('./webpack.electron.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = merge.smart(baseConfig,{
-    target:'electron-renderer',
-    entry:{
-        app:['@babel/polyfill','./src/app/renderer/app.tsx']
+module.exports = merge.smart(baseConfig, {
+    target: 'electron-renderer',
+    entry: {
+        app: ['@babel/polyfill', './src/app/renderer/app.tsx']
     },
     module: {
         rules: [
@@ -21,13 +21,13 @@ module.exports = merge.smart(baseConfig,{
                     presets: [
                         [
                             '@babel/preset-env',
-                            { targets: { browsers: 'last 2 versions ' } }
+                            {targets: {browsers: 'last 2 versions '}}
                         ],
                         '@babel/preset-typescript',
                         '@babel/preset-react'
                     ],
                     plugins: [
-                        ['@babel/plugin-proposal-class-properties', { loose: true }]
+                        ['@babel/plugin-proposal-class-properties', {loose: true}]
                     ]
                 }
             },
@@ -78,7 +78,7 @@ module.exports = merge.smart(baseConfig,{
         stats: 'errors-only',
         inline: true,
         hot: true,
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        headers: {'Access-Control-Allow-Origin': '*'},
         historyApiFallback: {
             verbose: true,
             disableDotRule: false
@@ -86,13 +86,12 @@ module.exports = merge.smart(baseConfig,{
         before() {
             if (process.env.START_HOT) {
                 console.log('Starting main process');
-                spawn('npm', ['run', 'start-main-dev'], {
+                spawn('npm', ['run', 'start-electron-main-dev'], {
                     shell: true,
                     env: process.env,
                     stdio: 'inherit'
-                })
-                    .on('close', code => process.exit(code))
-                    .on('error', spawnError => console.error(spawnError));
+                }).on('close', code => process.exit(code))
+                  .on('error', spawnError => console.error(spawnError));
             }
         }
     }
