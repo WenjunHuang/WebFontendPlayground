@@ -2,9 +2,6 @@
   "presets": [
     [
       "@babel/preset-env"
-//      {
-//        "useBuiltIns": "usage"
-//      }
     ],
     "@babel/preset-typescript",
     "@babel/preset-react"
@@ -12,6 +9,7 @@
   "plugins": [
     "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
-    "@babel/plugin-proposal-function-bind"
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-transform-runtime"
   ]
 }

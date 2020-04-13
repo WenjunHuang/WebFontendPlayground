@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        styledComponent:"./src/client/styledcomponent/App.tsx",
+        styledComponent: "./src/client/styledcomponent/App.tsx",
         cssLearn: "./src/client/css/index.tsx",
         cssPackage: "./src/client/css/packages/index.ts",
         cssCustomers: "./src/client/css/customers/index.ts",
@@ -31,6 +31,8 @@ module.exports = {
         antdLearn: "./src/client/antdlearn/main.tsx",
 
         mduiCopy: "./src/client/mdui/main.tsx",
+        dvaCount: "./src/client/dva/count/main.tsx",
+        dvaSimple: "./src/client/dva/simple/main.tsx",
 
         // bootstrapLearn: "./src/client/bootstrap/main.tsx",
 
@@ -227,15 +229,26 @@ module.exports = {
             chunks: ['styledComponent']
         }),
         new HtmlWebpackPlugin({
-            filename:'antdlearn/index.html',
-            template:'src/client/antdlearn/index.html',
-            chunks:['antdLearn']
+            filename: 'antdlearn/index.html',
+            template: 'src/client/antdlearn/index.html',
+            chunks: ['antdLearn']
         }),
         new HtmlWebpackPlugin({
-            filename:'mdui/index.html',
-            template:'src/client/mdui/index.html',
-            chunks:['mduiCopy']
-        })
+            filename: 'mdui/index.html',
+            template: 'src/client/mdui/index.html',
+            chunks: ['mduiCopy']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "dva/count/index.html",
+            template: "src/client/dva/index.html",
+            chunks: ['dvaCount']
+        }),
+        new HtmlWebpackPlugin({
+            filename: "dva/simple/index.html",
+            template: "src/client/dva/index.html",
+            chunks: ['dvaSimple']
+        }),
+
     ],
     devServer: {
         port: 8081,
