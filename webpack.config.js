@@ -5,34 +5,35 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        styledComponent: "./src/client/styledcomponent/App.tsx",
-        cssLearn: "./src/client/css/index.tsx",
-        cssPackage: "./src/client/css/packages/index.ts",
-        cssCustomers: "./src/client/css/customers/index.ts",
-        cssStartHosting: "./src/client/css/start-hosting/index.ts",
-        scssLearn: "./src/client/scss/index.ts",
-        es6Learn: "./src/client/es6/main.js",
-        terminalLearn: "./src/client/terminal.ts",
-        reactReduxTodo: "./src/client/react/todo/index.tsx",
-        reactVehicles: "./src/client/react/vehicles/App.tsx",
-        reactLifecycle: "./src/client/react/lifecycle/App.tsx",
-        tsReactLesson01Lecture: "./src/client/react/training/lesson01/lecture/App.tsx",
-        tsReactLesson01Exercise: "./src/client/react/training/lesson01/exercise/App.tsx",
-        tsReactLesson02Lecture: "./src/client/react/training/lesson02/lecture/App.tsx",
-        tsReactLesson02Exercise: "./src/client/react/training/lesson02/exercise/App.tsx",
-        tsReactLesson03Lecture: "./src/client/react/training/lesson03/lecture/App.tsx",
-        tsReactLesson03Exercise: "./src/client/react/training/lesson03/exercise/App.tsx",
-        tsReactLesson04Lecture: "./src/client/react/training/lesson04/lecture/App.tsx",
-        tsReactLesson04Exercise: "./src/client/react/training/lesson04/exercise/App.tsx",
-        tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
-        tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
-        tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
-
-        antdLearn: "./src/client/antdlearn/main.tsx",
-
-        mduiCopy: "./src/client/mdui/main.tsx",
-        dvaCount: "./src/client/dva/count/main.tsx",
-        dvaSimple: "./src/client/dva/simple/main.tsx",
+        // styledComponent: "./src/client/styledcomponent/App.tsx",
+        // cssLearn: "./src/client/css/index.tsx",
+        // cssPackage: "./src/client/css/packages/index.ts",
+        // cssCustomers: "./src/client/css/customers/index.ts",
+        // cssStartHosting: "./src/client/css/start-hosting/index.ts",
+        // scssLearn: "./src/client/scss/index.ts",
+        // es6Learn: "./src/client/es6/main.js",
+        // terminalLearn: "./src/client/terminal.ts",
+        // reactReduxTodo: "./src/client/react/todo/index.tsx",
+        // reactVehicles: "./src/client/react/vehicles/App.tsx",
+        // reactLifecycle: "./src/client/react/lifecycle/App.tsx",
+        // tsReactLesson01Lecture: "./src/client/react/training/lesson01/lecture/App.tsx",
+        // tsReactLesson01Exercise: "./src/client/react/training/lesson01/exercise/App.tsx",
+        // tsReactLesson02Lecture: "./src/client/react/training/lesson02/lecture/App.tsx",
+        // tsReactLesson02Exercise: "./src/client/react/training/lesson02/exercise/App.tsx",
+        // tsReactLesson03Lecture: "./src/client/react/training/lesson03/lecture/App.tsx",
+        // tsReactLesson03Exercise: "./src/client/react/training/lesson03/exercise/App.tsx",
+        // tsReactLesson04Lecture: "./src/client/react/training/lesson04/lecture/App.tsx",
+        // tsReactLesson04Exercise: "./src/client/react/training/lesson04/exercise/App.tsx",
+        // tsReactLesson05Lecture: "./src/client/react/training/lesson05/lecture/App.tsx",
+        // tsReactLesson05Exercise: "./src/client/react/training/lesson05/exercise/App.tsx",
+        // tsReactLesson06Exercise: "./src/client/react/training/lesson06/exercise/App.tsx",
+        //
+        // antdLearn: "./src/client/antdlearn/main.tsx",
+        //
+        // mduiCopy: "./src/client/mdui/main.tsx",
+        // dvaCount: "./src/client/dva/count/main.tsx",
+        // dvaSimple: "./src/client/dva/simple/main.tsx",
+        elmPhotoGroove: "./src/client/elm/PhotoGroove/index.js"
 
         // bootstrapLearn: "./src/client/bootstrap/main.tsx",
 
@@ -43,10 +44,26 @@ module.exports = {
         filename: '[name]-[hash:8]-bundle.js',
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json', '.re', '.ml', '.png']
+        extensions: ['.ts', '.tsx', '.js', '.json', '.re', '.ml', '.png', '.elm']
     },
     module: {
         rules: [
+            {
+                test: /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                use: [
+                    {loader: "elm-hot-webpack-loader"},
+                    {
+                        loader: "elm-webpack-loader",
+                        // options: {
+                        //     // add Elm's debug overlay to output
+                        //     debug: true,
+                        //     //
+                        //     forceWatch: true
+                        // }
+                    }
+                ]
+            },
             {
                 test: /\.txt$/,
                 loader: 'raw-loader',
@@ -118,135 +135,142 @@ module.exports = {
 
     },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     filename: "terminal.html",
+        //     template: "src/client/terminal.html",
+        //     chunks: ['terminalLearn']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "reactReduxTodo.html",
+        //     template: "src/client/react/todo/index.html",
+        //     chunks: ['reactReduxTodo']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "reactVehicles.html",
+        //     template: "src/client/react/vehicles/index.html",
+        //     chunks: ['reactVehicles']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "lifecycle.html",
+        //     template: "src/client/react/lifecycle/index.html",
+        //     chunks: ['reactLifecycle']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/01_lecture.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson01Lecture']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/01_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson01Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/02_lecture.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson02Lecture']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/02_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson02Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/03_lecture.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson03Lecture']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/03_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson03Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/04_lecture.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson04Lecture']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/04_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson04Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/05_lecture.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson05Lecture']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/05_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson05Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "ts/training/06_exercise.html",
+        //     template: "src/client/react/index.html",
+        //     chunks: ['tsReactLesson06Exercise']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "es6/index.html",
+        //     template: "src/client/es6/index.html",
+        //     chunks: ['es6Learn']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "css/index.html",
+        //     template: "src/client/css/index.html",
+        //     chunks: ['cssLearn']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "css/packages/index.html",
+        //     template: "src/client/css/packages/index.html",
+        //     chunks: ['cssPackage']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "css/customers/index.html",
+        //     template: "src/client/css/customers/index.html",
+        //     chunks: ['cssCustomers']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "css/start-hosting/index.html",
+        //     template: "src/client/css/start-hosting/index.html",
+        //     chunks: ['cssStartHosting']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "scss/index.html",
+        //     template: "src/client/scss/index.html",
+        //     chunks: ['scssLearn']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "styledcomponent/index.html",
+        //     template: "src/client/styledcomponent/index.html",
+        //     chunks: ['styledComponent']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'antdlearn/index.html',
+        //     template: 'src/client/antdlearn/index.html',
+        //     chunks: ['antdLearn']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'mdui/index.html',
+        //     template: 'src/client/mdui/index.html',
+        //     chunks: ['mduiCopy']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "dva/count/index.html",
+        //     template: "src/client/dva/index.html",
+        //     chunks: ['dvaCount']
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "dva/simple/index.html",
+        //     template: "src/client/dva/index.html",
+        //     chunks: ['dvaSimple']
+        // }),
+
         new HtmlWebpackPlugin({
-            filename: "terminal.html",
-            template: "src/client/terminal.html",
-            chunks: ['terminalLearn']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "reactReduxTodo.html",
-            template: "src/client/react/todo/index.html",
-            chunks: ['reactReduxTodo']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "reactVehicles.html",
-            template: "src/client/react/vehicles/index.html",
-            chunks: ['reactVehicles']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "lifecycle.html",
-            template: "src/client/react/lifecycle/index.html",
-            chunks: ['reactLifecycle']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/01_lecture.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson01Lecture']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/01_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson01Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/02_lecture.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson02Lecture']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/02_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson02Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/03_lecture.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson03Lecture']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/03_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson03Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/04_lecture.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson04Lecture']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/04_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson04Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/05_lecture.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson05Lecture']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/05_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson05Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "ts/training/06_exercise.html",
-            template: "src/client/react/index.html",
-            chunks: ['tsReactLesson06Exercise']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "es6/index.html",
-            template: "src/client/es6/index.html",
-            chunks: ['es6Learn']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "css/index.html",
-            template: "src/client/css/index.html",
-            chunks: ['cssLearn']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "css/packages/index.html",
-            template: "src/client/css/packages/index.html",
-            chunks: ['cssPackage']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "css/customers/index.html",
-            template: "src/client/css/customers/index.html",
-            chunks: ['cssCustomers']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "css/start-hosting/index.html",
-            template: "src/client/css/start-hosting/index.html",
-            chunks: ['cssStartHosting']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "scss/index.html",
-            template: "src/client/scss/index.html",
-            chunks: ['scssLearn']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "styledcomponent/index.html",
-            template: "src/client/styledcomponent/index.html",
-            chunks: ['styledComponent']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'antdlearn/index.html',
-            template: 'src/client/antdlearn/index.html',
-            chunks: ['antdLearn']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'mdui/index.html',
-            template: 'src/client/mdui/index.html',
-            chunks: ['mduiCopy']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "dva/count/index.html",
-            template: "src/client/dva/index.html",
-            chunks: ['dvaCount']
-        }),
-        new HtmlWebpackPlugin({
-            filename: "dva/simple/index.html",
-            template: "src/client/dva/index.html",
-            chunks: ['dvaSimple']
+            filename: "elm/PhotoGroove/index.html",
+            template: "src/client/elm/index.html",
+            inject: "body",
+            chunks: ['elmPhotoGroove']
         }),
 
     ],

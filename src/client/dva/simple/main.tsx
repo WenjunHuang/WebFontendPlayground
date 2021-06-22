@@ -13,10 +13,10 @@ app.model({
         add(state){return state + 1;},
     },
     effects:{
-        *addAfter1Second(action,{call,put}) {
-            yield call(delay,1000)
-
-        }
+        // *addAfter1Second(action,{call,put}) {
+        //     yield call(delay,1000)
+        //
+        // }
     }
 })
 // 注册视图
